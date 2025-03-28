@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/pagination'
 
 export const TablePagination = ({ currentPage, totalPages, onPageChange }) => (
-  <Pagination className="text-white bg-blue-600 rounded-sm h-25">
+  <Pagination className="text-black bg-blue-500  border-t h-25">
     <PaginationContent>
       <PaginationItem>
         <PaginationPrevious

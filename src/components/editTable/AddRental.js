@@ -44,7 +44,6 @@ export function AddNew({ refetch }) {
         { headers: { 'Content-Type': 'application/json' } },
       )
       .then(function (response) {
-        console.log(response)
         if (response?.data?.message === 'rentals added successful') {
           toast.success('Successful')
           setEmail('')
@@ -66,7 +65,7 @@ export function AddNew({ refetch }) {
       <DialogTrigger asChild>
         <div
           className={
-            'bg-blue-600 py-2 ml-4 rounded-sm border-none hover:bg-white hover:text-black text-white'
+            'py-2 ml-9 rounded-lg  bg-stone-50 hover:bg-white hover:text-black border'
           }
           variant="outline"
         >

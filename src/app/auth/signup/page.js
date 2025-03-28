@@ -60,13 +60,15 @@ export default function SignUp() {
           setTimeout(() => {
             router.push('/auth/signin')
           }, 2000)
+        } else if (response?.data?.message === 'email already used') {
+          toast.warning('Email already used')
         } else {
-          toast.warning('user already used')
+          toast.warning(`Something went wrong`)
         }
       })
       .catch(function (error) {
         console.log(error)
-        toast.error(`Something went wrong`)
+        toast.error(`Error`)
       })
   }
 

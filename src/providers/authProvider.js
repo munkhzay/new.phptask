@@ -15,7 +15,6 @@ export const AuthProvider = ({ children }) => {
     const user = localStorage.getItem('user')
 
     if (user) {
-      const parsedUser = JSON.parse(user)
       setCurrentUser(user)
     }
     setLoading(false)

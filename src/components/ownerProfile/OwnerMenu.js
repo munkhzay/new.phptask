@@ -39,11 +39,15 @@ export const UserInfo = ({ onClick, setShowCategory, showCategory }) => {
         },
       )
       .then(function (response) {
+        if (response?.data?.message === 'category added successful') {
+          toast.success('Successful')
+          setIcon()
+          setName()
+          getCategory()
+        } else {
+          toast.warning('something went wrong')
+        }
         console.log(response)
-        toast.success('Successful')
-        setIcon()
-        setName()
-        getCategory()
       })
       .catch(function (error) {
         console.log(error)
@@ -52,8 +56,8 @@ export const UserInfo = ({ onClick, setShowCategory, showCategory }) => {
 
   return (
     <div>
-      <div className="w-[300px] h-fit p-8 border flex flex-col rounded-lg gap-8">
-        <div className="bg-blue-600 rounded-lg py-7">
+      <div className="w-[300px] h-fit bg-stone-100 p-8 border flex flex-col rounded-lg gap-8">
+        <div className="bg-blue-500 rounded-lg py-7">
           <div></div>
         </div>
         <CustomerData

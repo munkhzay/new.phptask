@@ -21,9 +21,9 @@ export default function Home() {
   }, [currentUser, loading])
 
   return (
-    <div>
+    <div className="flex flex-col h-screen justify-between ">
       <Header />
-      <div className="flex flex-row justify-between gap-15 p-20">
+      <div className="flex flex-row justify-between gap-15 w-fit mx-auto m-20">
         <UserInfo
           showCategory={showCategory}
           setShowCategory={setShowCategory}

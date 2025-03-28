@@ -5,7 +5,7 @@ import { AuthProvider } from '@/providers/authProvider'
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-stone-50">
         <AuthProvider>{children}</AuthProvider>
         <ToastContainer />
       </body>

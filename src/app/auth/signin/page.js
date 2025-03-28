@@ -50,25 +50,27 @@ export default function SignIn() {
         { email: data.email, password: data.password },
         { headers: { 'Content-Type': 'application/json' } },
       )
-      if (!response.data || response.data === 'user not found') {
-        toast.warning('Таны мэдээлэл буруу байна')
-      } else if (response.data === 'password not match') {
-        toast.warning('Нууц үг буруу байна')
-      } else {
-        signin(response.data.user), toast.success('Амжилттай нэвтэрлээ!')
+      if (response?.data?.message === 'user not found') {
+        toast.warning('User not found')
+      } else if (response?.data?.message === 'password not match') {
+        toast.warning('Password not match')
+      } else if (response?.data?.user) {
+        signin(response.data.user), toast.success('Successful')
+
         setTimeout(() => {
           router.push('/')
         }, 1000)
+      } else {
+        toast.warning('something went wrong')
       }
     } catch (error) {
-      console.log(error)
       toast.error('Алдаа гарлаа')
     }
   }
 
   return (
-    <div className="flex justify-center items-center h-screen ">
-      <div className="py-15 px-8 rounded-lg border ">
+    <div className="flex justify-center items-center h-screen  ">
+      <div className="py-15 px-8 rounded-lg border bg-white">
         <div className="text-black font-extrabold text-2xl text-center pb-10">
           Нэвтрэх
         </div>

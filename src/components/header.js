@@ -19,8 +19,8 @@ export const Header = () => {
   }
 
   return (
-    <div className="bg-blue-500 text-center ">
-      <div className="w-[1024px] text-black m-auto h-24 flex justify-between items-center">
+    <div className="bg-stone-100 text-center border ">
+      <div className="w-[1024px] text-black m-auto h-30  flex justify-between items-center">
         <div>
           {' '}
           <div className="flex flex-row justify-center items-center gap-4">
@@ -32,13 +32,13 @@ export const Header = () => {
                 alt="@shadcn"
               />
             </Avatar>{' '}
-            <div className="font-semibold px-5 text-lg bg-white rounded-xl w-fit text-black">
+            <div className="font-semibold px-5 py-1 text-lg bg-blue-500 rounded-xl w-fit text-white">
               {currentUser?.email}
             </div>
           </div>{' '}
         </div>
         <div className="flex gap-10 items-center justify-center">
-          <div className="p-2 border bg-white rounded-lg">
+          <div className="p-2 border bg-blue-500 text-white rounded-lg">
             <LogOut onClick={logout} className="" />
           </div>
         </div>

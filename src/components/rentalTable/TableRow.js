@@ -39,14 +39,17 @@ export function TableDemo({ currentRentals, refetch }) {
         { headers: { 'Content-Type': 'application/json' } },
       )
       .then(function (response) {
-        console.log(response)
-        refetch()
-        setEmail('')
-        setRent(),
-          setRentalDay(''),
-          setPaymentType(''),
-          setIcon(''),
-          setCategoryName('')
+        if (response?.data?.message === 'rental updated successful') {
+          refetch()
+          setEmail('')
+          setRent(),
+            setRentalDay(''),
+            setPaymentType(''),
+            setIcon(''),
+            setCategoryName('')
+        } else {
+          toast.warning('Something went wrong')
+        }
       })
       .catch(function (error) {
         console.error(error)
@@ -123,10 +126,10 @@ export function TableDemo({ currentRentals, refetch }) {
         ))}
       </TableBody>
       <TableFooter>
-        <TableRow>
+        {/* <TableRow>
           <TableCell colSpan={2}>Total</TableCell>
           <TableCell className="text-right">$2,500.00</TableCell>
-        </TableRow>
+        </TableRow> */}
       </TableFooter>
     </Table>
   )

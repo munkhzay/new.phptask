@@ -70,7 +70,7 @@ export const RentalTable = () => {
     currentPage * itemsPerPage,
   )
   return (
-    <div className="w-full">
+    <div className="w-[768px] border rounded-lg">
       <TableHead
         status={status}
         rentalStatus={rentalStatus}

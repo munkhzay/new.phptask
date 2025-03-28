@@ -13,6 +13,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { SelectIcon } from './SelectIcon'
+import { PlusCircle } from 'lucide-react'
 
 export function NewCategory({ createCategory, setIcon, setName, name, icon }) {
   return (
@@ -20,9 +21,10 @@ export function NewCategory({ createCategory, setIcon, setName, name, icon }) {
       <DialogTrigger asChild>
         <div
           variant="outline"
-          className={'border rounded-lg p-2 hover:bg-white text-start'}
+          className="flex justify-between border rounded-lg p-2 bg-stone-50 text-start "
         >
-          New category
+          <div>New category</div>
+          <PlusCircle className="text-black" />
         </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">

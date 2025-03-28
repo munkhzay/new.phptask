@@ -11,8 +11,7 @@ export const RentalTable = () => {
   const { currentUser } = useAuthContext()
   const [rentals, setRentals] = useState()
   const [search, setSearch] = useState('')
-  const [status, setStatus] = useState('')
-  const [all, setAll] = useState()
+  const [_all, setAll] = useState()
 
   const allData = async () => {
     try {
@@ -41,28 +40,6 @@ export const RentalTable = () => {
       console.log(error)
     }
   }
-
-  const rentalStatus = async () => {
-    // console.log(status, currentUser?.id)
-    // try {
-    //   const rental = await axios.get(
-    //     `${process.env.NEXT_PUBLIC_BACKEND_URL}/get/rental.status.php?mode=${status}&owner_id=${currentUser?.id}`,
-    //     { headers: { 'Content-Type': 'application/json' } },
-    //   )
-    //   setRentals(rental?.data?.rentals)
-    //   console.log(rental)
-    //   if (status === 'all') {
-    //     setRentals(all)
-    //   }
-    //   setStatus('')
-    // } catch (error) {
-    //   console.log(error)
-    // }
-  }
-  useEffect(() => {
-    rentalStatus()
-  }, [])
-
   const itemsPerPage = 5
   const totalPages = Math.ceil(rentals?.length / itemsPerPage)
   const currentRentals = rentals?.slice(
@@ -71,14 +48,7 @@ export const RentalTable = () => {
   )
   return (
     <div className="w-[768px] border rounded-lg">
-      <TableHead
-        status={status}
-        rentalStatus={rentalStatus}
-        all={all}
-        setStatus={setStatus}
-        refetch={allRental}
-        setSearch={setSearch}
-      />
+      <TableHead refetch={allRental} setSearch={setSearch} />
       <TableDemo refetch={allRental} currentRentals={currentRentals} />
       <TablePagination
         currentPage={currentPage}

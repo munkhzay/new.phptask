@@ -1,5 +1,3 @@
-import { FishSymbol, KeyRound } from 'lucide-react'
-
 export const CustomerData = ({ onClick }) => {
   return (
     <div className="border rounded-lg bg-stone-50">
